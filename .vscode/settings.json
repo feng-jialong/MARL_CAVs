@@ -1,0 +1,181 @@
+{
+    //python配置
+        "python.pythonPath": "X:\\Anaconda\\python.exe",
+        
+    
+    //latex配置
+    
+      "latex-workshop.latex.autoBuild.run": "never",
+      "latex-workshop.showContextMenu": true,
+      "latex-workshop.intellisense.package.enabled": true,
+      "latex-workshop.message.error.show": false,
+      "latex-workshop.message.warning.show": false,
+      "latex-workshop.latex.tools": [
+          {
+              "name": "xelatex",
+              "command": "xelatex",
+              "args": [
+                  "-synctex=1",
+                  "-interaction=nonstopmode",
+                  "-file-line-error",
+                  "%DOCFILE%"
+              ]
+          },
+          {
+              "name": "pdflatex",
+              "command": "pdflatex",
+              "args": [
+                  "-synctex=1",
+                  "-interaction=nonstopmode",
+                  "-file-line-error",
+                  "%DOCFILE%"
+              ]
+          },
+          {
+              "name": "latexmk",
+              "command": "latexmk",
+              "args": [
+                  "-synctex=1",
+                  "-interaction=nonstopmode",
+                  "-file-line-error",
+                  "-pdf",
+                  "-outdir=%OUTDIR%",
+                  "%DOCFILE%"
+              ]
+          },
+          {
+              "name": "bibtex",
+              "command": "bibtex",
+              "args": [
+                  "%DOCFILE%"
+              ]
+          }
+      ],
+      "latex-workshop.latex.recipes": [
+          {
+              "name": "XeLaTeX",
+              "tools": [
+                  "xelatex"
+              ]
+          },
+          {
+              "name": "PDFLaTeX",
+              "tools": [
+                  "pdflatex"
+              ]
+          },
+          {
+              "name": "BibTeX",
+              "tools": [
+                  "bibtex"
+              ]
+          },
+          {
+              "name": "LaTeXmk",
+              "tools": [
+                  "latexmk"
+              ]
+          },
+          {
+              "name": "xelatex -> bibtex -> xelatex*2",
+              "tools": [
+                  "xelatex",
+                  "bibtex",
+                  "xelatex",
+                  "xelatex"
+              ]
+          },
+          {
+              "name": "pdflatex -> bibtex -> pdflatex*2",
+              "tools": [
+                  "pdflatex",
+                  "bibtex",
+                  "pdflatex",
+                  "pdflatex"
+              ]
+          },
+      ],
+      "latex-workshop.latex.clean.fileTypes": [
+          "*.aux",
+          "*.bbl",
+          "*.blg",
+          "*.idx",
+          "*.ind",
+          "*.lof",
+          "*.lot",
+          "*.out",
+          "*.toc",
+          "*.acn",
+          "*.acr",
+          "*.alg",
+          "*.glg",
+          "*.glo",
+          "*.gls",
+          "*.ist",
+          "*.fls",
+          "*.log",
+          "*.fdb_latexmk"
+      ],
+      "latex-workshop.latex.autoClean.run": "onFailed",
+      "latex-workshop.latex.recipe.default": "lastUsed",
+      "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
+    
+      "latex-workshop.view.pdf.viewer": "tab",
+      "latex-workshop.view.pdf.ref.viewer":"auto",
+      "latex-workshop.view.pdf.external.viewer.command": "\"C:\\Users\\冯嘉龙\\AppData\\Local\\SumatraPDF\\Sumatra.exe\"",//"X:/Microsoft VS Code/resources/app/extensions/Sumatra.exe",
+    "latex-workshop.view.pdf.external.viewer.args": [
+          //"-forward-search",
+          //"%TEX%",
+          //"%LINE%",
+          //"-reuse-instance",
+          "-inverse-search",
+          "\"X:\\Microsoft VS Code\\Code.exe\" \"X:\\Microsoft VS Code\\resources\\app\\out\\cli.js\" -r -g \"%f:%l\"",
+          "%PDF%"
+      ],
+      "latex-workshop.view.pdf.external.synctex.command": "\"C:\\Users\\冯嘉龙\\AppData\\Local\\SumatraPDF\\Sumatra.exe\"",
+      "latex-workshop.view.pdf.external.synctex.args": [
+          "-forward-search",
+          "%TEX%",
+          "%LINE%",
+          "-reuse-instance",
+          //"-inverse-search",
+          "\"X:\\Microsoft VS Code\\Code.exe\" \"X:\\Microsoft VS Code\\resources\\app\\out\\cli.js\" -r -g \"%f:%l\"",
+          "%PDF%"
+    ],
+    "C_Cpp.updateChannel": "Insiders",
+    "python.terminal.executeInFileDir": true,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "editor.wordWrap": "on",
+    "files.autoGuessEncoding": true,
+    "workbench.colorTheme": "Bearded Theme Black & Ruby",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook",
+        "*.png": "default"
+    },
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "notebook.lineNumbers": "on",
+    "python.defaultInterpreterPath": "X:\\Anaconda\\envs\\marl_cav\\python.exe",
+    
+    "security.workspace.trust.untrustedFiles": "open",
+    "files.autoSave": "afterDelay",
+    "jupyter.themeMatplotlibPlots": true,
+    "jupyter.widgetScriptSources": [
+        "jsdelivr.com",
+        "unpkg.com"
+    ],
+    "diffEditor.codeLens": true,
+    "notebook.outline.showCodeCells": true,
+    "editor.accessibilitySupport": "on",
+    "jupyter.interactiveWindowMode": "multiple",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.minimap.enabled": false,
+    "workbench.editor.enablePreview": false,
+    "jupyter.sendSelectionToInteractiveWindow": true,
+    "jupyter.enableAutoMoveToNextCell": false,
+    "jupyter.jupyterServerType": "local",
+    "todo-tree.tree.showCountsInTree": true
+    }
