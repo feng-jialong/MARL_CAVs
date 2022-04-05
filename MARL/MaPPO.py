@@ -19,6 +19,7 @@ from copy import deepcopy
 from single_agent.Memory_common import OnPolicyReplayMemory
 from single_agent.Model_common import ActorNetwork, CriticNetwork, ActorNetworkPlus, CriticNetworkPlus
 from common.utils import index_to_one_hot, to_tensor_var, VideoRecorder
+from joblib import Parallel,delayed
 
 
 class MAPPO: # 默认继承object类

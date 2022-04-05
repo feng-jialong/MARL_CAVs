@@ -1,42 +1,39 @@
 #%%
+'''
 import sys
-
 if "../" not in sys.path:
     sys.path.insert(0,"../")
 if "./single_agent/" not in sys.path:
     sys.path.insert(0,"./single_agent/")
+'''  
 import importlib as imp
 
-# region 重新加载包和模块
-'''
-try:
-    imp.reload(gym.envs.registration)
-    imp.reload(highway_env.envs.highway_env_v1)  # 环境的重载还不行
-    imp.reload(MaPPO)
-    imp.reload(Memory_common)
-    imp.reload(Model_common)
-    imp.reload(highway_env.envs.common.observation)
-    imp.reload(highway_env.envs.common.abstract)
-except:
-    pass
-'''
-# endregion
-
 from torch.utils.tensorboard import SummaryWriter
-# import Model_common
-# import Memory_common
-import MaPPO
-from MaPPO import MAPPO
 from common.utils import agg_double_list, copy_file_ppo, init_dir
 import gym
 import numpy as np
 import matplotlib.pyplot as plt
-import highway_env
 import argparse
 import configparser
 import copy
 import os
 from datetime import datetime
+
+from ..highway_env.envs import highway_env_v1
+from .single_agent import Model_common
+from .single_agent import Memory_common
+import MaPPO
+from MaPPO import MAPPO
+
+# region 重新加载包和模块
+imp.reload(gym.envs.registration)
+imp.reload(highway_env_v1)  # 环境的重载还不行
+imp.reload(MaPPO)
+imp.reload(Memory_common)
+imp.reload(Model_common)
+imp.reload(highway_env.envs.common.observation)
+imp.reload(highway_env.envs.common.abstract)
+# endregion
 
 def parse_args():
     """
@@ -232,6 +229,7 @@ def train(args):
     logger.close()
 
 def evaluate(args):  # 参数的读取需要修改
+    
     if os.path.exists(args.model_dir):
         model_dir = args.model_dir
     else:
@@ -336,3 +334,12 @@ plt.xlabel("Episode")
 plt.ylabel("Average Reward")
 plt.legend(["MAPPO"])
 '''
+
+#%%
+import torch
+def batch_gather_vec(tensor, indices):
+    shape = list(tensor.shape)
+    flat_first = torch.reshape(tensor, [shape[0] * shape[1]] + shape[2:])
+    offset = torch.reshape(torch.arange(shape[0]).cuda() * shape[1],[shape[0]] + [1] * (len(indices.shape) - 1))
+    output = flat_first[indices + offset]
+    return output
